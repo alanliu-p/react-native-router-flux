@@ -571,13 +571,11 @@ class NavBar extends React.Component {
       imageOrTitle = renderTitle ? renderTitle(navProps)
       : state.children.map(this.renderTitle, this);
     }
-    const contents = (
-      <View>
-        {imageOrTitle}
-        {renderBackButton(navProps) || renderLeftButton(navProps)}
-        {renderRightButton(navProps)}
-      </View>
-    );
+    const contents = [
+      renderBackButton(navProps) || renderLeftButton(navProps),
+      imageOrTitle,
+      renderRightButton(navProps)
+    ];
     return (
       <Animated.View
         style={[
